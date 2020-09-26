@@ -12,7 +12,7 @@ class TvShowViewController: UIViewController {
 
     @IBOutlet weak var tvShowTableView: UITableView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
-    let tvShowViewModel: TvShowViewModel = TvShowViewModel()
+    private let tvShowViewModel: TvShowViewModel = TvShowViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +56,15 @@ extension TvShowViewController: UITableViewDataSource {
 extension TvShowViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let destinationVC = storyboard.instantiateViewController(identifier: "TvShowDetails") as! TvShowDetailsViewController
+        let vm = tvShowViewModel.cellForRow(at: indexPath.row)
+        destinationVC.detailsViewModel.detailID = vm.id
+        destinationVC.detailsViewModel.categoryType = .TvShows
+        navigationController?.pushViewController(destinationVC, animated: true)
     }
 }
 

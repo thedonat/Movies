@@ -8,6 +8,7 @@
 
 import Foundation
 
+// MARK: - TvShow
 struct TvShow: Codable {
     let results: [TvShowResult]
 }

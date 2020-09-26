@@ -26,14 +26,13 @@ class TvShowViewModel {
     }
     
     func getShows(type: ListType){
-        manager.performRequest(type: type) { [weak self] (response: NetworkResponse<TvShow, NetworkError>) in
+        manager.getMedia(type: type) { [weak self] (response: NetworkResponse<TvShow, NetworkError>) in
             guard let self = self else { return }
             
             switch response {
             case .success(let result):
                 self.shows = result.results
                 self.delegate?.didGetData()
-                print(self.shows.count)
                 break
             case .failure(let error):
                 print(error.errorMessage)

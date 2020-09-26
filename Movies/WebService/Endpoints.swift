@@ -15,4 +15,6 @@ enum EndPoints: String {
     case getGenres = "/genre/movie/list?"
     case getPopularTv  = "/tv/popular?"
     case getTopRatesTv = "/tv/top_rated?"
+    case getMovieDetails = "/movie/"
+    case getTvDetails = "/tv/"
 }

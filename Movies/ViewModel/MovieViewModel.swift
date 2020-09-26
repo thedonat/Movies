@@ -26,14 +26,13 @@ class MovieViewModel {
     }
     
     func getMovies(type: ListType){
-        manager.performRequest(type: type) { [weak self] (response: NetworkResponse<Movie, NetworkError>) in
+        manager.getMedia(type: type) { [weak self] (response: NetworkResponse<Movie, NetworkError>) in
             guard let self = self else { return }
             
             switch response {
             case .success(let result):
                 self.movies = result.results
                 self.delegate?.didGetData()
-                print(self.movies)
                 break
             case .failure(let error):
                 print(error.errorMessage)

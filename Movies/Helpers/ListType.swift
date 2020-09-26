@@ -1,5 +1,5 @@
 //
-//  BaseViewModel.swift
+//  ListType.swift
 //  Movies
 //
 //  Created by Burak Donat on 26.09.2020.
@@ -10,12 +10,15 @@ import Foundation
 
 enum ListType: String{
     case PopularMovies
-    case TopRateMovies = "Top Rate"
+    case TopRateMovies
     case NowPlayingMovies
     case PopularShows
     case TopRatedShows
+    case MovieDetails
+    case TvDetails
+    case MovieCast
+    case TvCast
 }
-
 
 enum CategoryType{
     case Movies
