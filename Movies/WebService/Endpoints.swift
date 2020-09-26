@@ -11,7 +11,7 @@ import Foundation
 enum MoviesEndPoint: String {
     case getPopular  = "/movie/popular?"
     case getTopRates = "/movie/top_rated?"
-    case getUpcomings  = "/movie/upcoming?"
+    case getNowPlaying  = "/movie/now_playing?"
     case getGenres = "/genre/movie/list?"
 }
 

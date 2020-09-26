@@ -11,7 +11,7 @@ import Foundation
 enum ListType: String{
     case Popular
     case TopRate = "Top Rate"
-    case Upcoming
+    case NowPlaying
 }
 
 

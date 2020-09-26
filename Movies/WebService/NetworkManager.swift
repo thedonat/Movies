@@ -36,8 +36,8 @@ private func setEndPoint(type: ListType) -> MoviesEndPoint {
         endPoint = .getPopular
     case .TopRate:
         endPoint = .getTopRates
-    case .Upcoming:
-        endPoint = .getUpcomings
+    case .NowPlaying:
+        endPoint = .getNowPlaying
     }
     return endPoint
 }
