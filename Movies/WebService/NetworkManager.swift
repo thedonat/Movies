@@ -28,16 +28,20 @@ struct NetworkManager {
     }
 }
 
-private func setEndPoint(type: ListType) -> MoviesEndPoint {
-    var endPoint: MoviesEndPoint
+private func setEndPoint(type: ListType) -> EndPoints {
+    var endPoint: EndPoints
     
     switch type {
-    case .Popular:
+    case .PopularMovies:
         endPoint = .getPopular
-    case .TopRate:
+    case .TopRateMovies:
         endPoint = .getTopRates
-    case .NowPlaying:
+    case .NowPlayingMovies:
         endPoint = .getNowPlaying
+    case .PopularShows:
+        endPoint = .getPopularTv
+    case .TopRatedShows:
+        endPoint = .getTopRatesTv
     }
     return endPoint
 }

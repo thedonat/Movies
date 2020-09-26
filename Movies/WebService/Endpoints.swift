@@ -8,16 +8,11 @@
 
 import Foundation
 
-enum MoviesEndPoint: String {
+enum EndPoints: String {
     case getPopular  = "/movie/popular?"
     case getTopRates = "/movie/top_rated?"
     case getNowPlaying  = "/movie/now_playing?"
     case getGenres = "/genre/movie/list?"
-}
-
-
-enum TvShowsEndPoint: String {
     case getPopularTv  = "/tv/popular?"
     case getTopRatesTv = "/tv/top_rated?"
-    case getUpcomingsTv = "/tv/airing_today?"
 }

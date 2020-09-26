@@ -12,32 +12,46 @@ class TvShowViewController: UIViewController {
 
     @IBOutlet weak var tvShowTableView: UITableView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
+    let tvShowViewModel: TvShowViewModel = TvShowViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        getData()
     }
     
     @IBAction func indexDidChange(_ sender: UISegmentedControl) {
         switch segmentedControl.selectedSegmentIndex {
         case 0:
-            print(0)
+            tvShowViewModel.getShows(type: .PopularShows)
         case 1:
-            print(1)
+            tvShowViewModel.getShows(type: .TopRatedShows)
         default:
             break;
         }
+    }
+    
+    private func getData() {
+        tvShowViewModel.delegate = self
+        tvShowViewModel.getShows(type: .PopularShows)
     }
 }
 
 extension TvShowViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return tvShowViewModel.numberOfRow()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tvShowTableView.dequeueReusableCell(withIdentifier: "TvCell", for: indexPath) as! CustomCell
+        cell.textLabel?.text = tvShowViewModel.cellForRow(at: indexPath.row).name
         return cell
+    }
+}
+
+extension TvShowViewController: TvShowViewModelProtocol {
+    func didGetData() {
+        DispatchQueue.main.async {
+            self.tvShowTableView.reloadData()
+        }
     }
 }

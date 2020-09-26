@@ -22,11 +22,11 @@ class MovieViewController: UIViewController {
     @IBAction func indexDidChange(_ sender: UISegmentedControl) {
         switch segmentedControl.selectedSegmentIndex {
         case 0:
-            movieViewModel.getMovies(type: .Popular)
+            movieViewModel.getMovies(type: .PopularMovies)
         case 1:
-            movieViewModel.getMovies(type: .NowPlaying)
+            movieViewModel.getMovies(type: .NowPlayingMovies)
         case 2:
-            movieViewModel.getMovies(type: .Popular)
+            movieViewModel.getMovies(type: .PopularMovies)
         default:
             break;
         }
@@ -34,7 +34,7 @@ class MovieViewController: UIViewController {
     
     private func getData() {
         movieViewModel.delegate = self
-        movieViewModel.getMovies(type: .Popular)
+        movieViewModel.getMovies(type: .PopularMovies)
     }
 }
 

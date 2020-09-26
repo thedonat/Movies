@@ -23,6 +23,8 @@
 		0094CE05251F34DB007ECBBE /* TvShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0094CE04251F34DB007ECBBE /* TvShowViewController.swift */; };
 		0094CE08251F35AF007ECBBE /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0094CE07251F35AF007ECBBE /* CustomCell.swift */; };
 		0094CE0B251F3B50007ECBBE /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0094CE0A251F3B50007ECBBE /* MovieViewModel.swift */; };
+		0094CE0D251F4360007ECBBE /* TvShowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0094CE0C251F4360007ECBBE /* TvShowViewModel.swift */; };
+		0094CE0F251F4397007ECBBE /* TvShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0094CE0E251F4397007ECBBE /* TvShow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		0094CE04251F34DB007ECBBE /* TvShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvShowViewController.swift; sourceTree = "<group>"; };
 		0094CE07251F35AF007ECBBE /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		0094CE0A251F3B50007ECBBE /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
+		0094CE0C251F4360007ECBBE /* TvShowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvShowViewModel.swift; sourceTree = "<group>"; };
+		0094CE0E251F4397007ECBBE /* TvShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvShow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +116,7 @@
 			children = (
 				0094CDFD251F31D5007ECBBE /* BaseViewModel.swift */,
 				0094CE0A251F3B50007ECBBE /* MovieViewModel.swift */,
+				0094CE0C251F4360007ECBBE /* TvShowViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -120,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				0094CDF3251F3120007ECBBE /* Movie.swift */,
+				0094CE0E251F4397007ECBBE /* TvShow.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -249,8 +255,10 @@
 				0094CE03251F3229007ECBBE /* Constants.swift in Sources */,
 				0094CDFE251F31D5007ECBBE /* BaseViewModel.swift in Sources */,
 				0094CDF2251F300E007ECBBE /* MovieViewController.swift in Sources */,
+				0094CE0D251F4360007ECBBE /* TvShowViewModel.swift in Sources */,
 				0094CDFC251F3198007ECBBE /* Endpoints.swift in Sources */,
 				0094CE0B251F3B50007ECBBE /* MovieViewModel.swift in Sources */,
+				0094CE0F251F4397007ECBBE /* TvShow.swift in Sources */,
 				0094CE08251F35AF007ECBBE /* CustomCell.swift in Sources */,
 				0094CDF8251F3171007ECBBE /* NetworkResponse.swift in Sources */,
 			);

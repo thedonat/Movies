@@ -9,9 +9,11 @@
 import Foundation
 
 enum ListType: String{
-    case Popular
-    case TopRate = "Top Rate"
-    case NowPlaying
+    case PopularMovies
+    case TopRateMovies = "Top Rate"
+    case NowPlayingMovies
+    case PopularShows
+    case TopRatedShows
 }
 
 
