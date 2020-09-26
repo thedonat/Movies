@@ -22,6 +22,9 @@
                                     <segment title="Now Playing"/>
                                     <segment title="Top Rated"/>
                                 </segments>
+                                <connections>
+                                    <action selector="indexDidChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="0Nc-QJ-8Z6"/>
+                                </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="t4s-xt-23K">
                                 <rect key="frame" x="0.0" y="151" width="414" height="662"/>
@@ -36,6 +39,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="n3l-Cf-otP"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="00y-sE-bWR"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -51,6 +58,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="G9q-ep-GhQ"/>
+                    <connections>
+                        <outlet property="movieTableView" destination="t4s-xt-23K" id="Dqe-QR-Dve"/>
+                        <outlet property="segmentedControl" destination="Eyf-6W-RF0" id="QhV-2H-HCE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -70,6 +81,9 @@
                                     <segment title="Popular"/>
                                     <segment title="Top Rated"/>
                                 </segments>
+                                <connections>
+                                    <action selector="indexDidChange:" destination="V7F-6H-Fcy" eventType="valueChanged" id="KYo-ba-3Fu"/>
+                                </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="br1-1b-u5A">
                                 <rect key="frame" x="0.0" y="151" width="414" height="662"/>
@@ -84,6 +98,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="V7F-6H-Fcy" id="kRv-Ig-Qs0"/>
+                                    <outlet property="delegate" destination="V7F-6H-Fcy" id="pCd-Ve-ACW"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -99,6 +117,10 @@
                         <viewLayoutGuide key="safeArea" id="NcH-Zf-Tnx"/>
                     </view>
                     <navigationItem key="navigationItem" id="9mr-SE-zhs"/>
+                    <connections>
+                        <outlet property="segmentedControl" destination="8NE-6u-gak" id="Ic4-iZ-JBN"/>
+                        <outlet property="tvShowTableView" destination="br1-1b-u5A" id="IvK-YH-yGT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="asn-IP-Dob" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -110,6 +132,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="cnV-qA-ty2" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2et-Md-nyv">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
