@@ -31,6 +31,7 @@ class TvShowViewController: UIViewController {
     }
     
     private func getData() {
+        tvShowTableView.register(UINib(nibName: "CustomCell", bundle: nil), forCellReuseIdentifier: "TvCell")
         tvShowViewModel.delegate = self
         tvShowViewModel.getShows(type: .PopularShows)
     }
@@ -43,8 +44,18 @@ extension TvShowViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tvShowTableView.dequeueReusableCell(withIdentifier: "TvCell", for: indexPath) as! CustomCell
-        cell.textLabel?.text = tvShowViewModel.cellForRow(at: indexPath.row).name
+        let vm = tvShowViewModel.cellForRow(at: indexPath.row)
+        cell.setView(name: vm.name,
+                     rating: vm.vote_average,
+                     date: vm.first_air_date,
+                     posterPath: vm.poster_path)
         return cell
+    }
+}
+
+extension TvShowViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 200
     }
 }
 

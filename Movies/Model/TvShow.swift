@@ -15,9 +15,9 @@ struct TvShow: Codable {
 // MARK: - Result
 struct TvShowResult: Codable {
     let name: String
-    let voteCount: Int?
-    let firstAirDate : String?
+    let vote_count: Int?
+    let first_air_date : String?
     let id: Int
-    let voteAverage: Double?
-    let posterPath: String?
+    let vote_average: Double?
+    let poster_path: String?
 }

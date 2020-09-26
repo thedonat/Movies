@@ -26,13 +26,14 @@ class MovieViewController: UIViewController {
         case 1:
             movieViewModel.getMovies(type: .NowPlayingMovies)
         case 2:
-            movieViewModel.getMovies(type: .PopularMovies)
+            movieViewModel.getMovies(type: .TopRateMovies)
         default:
             break;
         }
     }
     
     private func getData() {
+        movieTableView.register(UINib(nibName: "CustomCell", bundle: nil), forCellReuseIdentifier: "MovieCell")
         movieViewModel.delegate = self
         movieViewModel.getMovies(type: .PopularMovies)
     }
@@ -46,8 +47,18 @@ extension MovieViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = movieTableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! CustomCell
-        cell.textLabel?.text = movieViewModel.cellForRow(at: indexPath.row).title
+        let vm = movieViewModel.cellForRow(at: indexPath.row)
+        cell.setView(name: vm.title,
+                     rating: vm.vote_average,
+                     date: vm.release_date,
+                     posterPath: vm.poster_path)
         return cell
+    }
+}
+
+extension MovieViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 200
     }
 }
 

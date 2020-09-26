@@ -16,11 +16,11 @@ struct Movie: Codable {
 // MARK: - Result
 struct MovieResult: Codable {
     let popularity: Double?
-    let voteCount: Int?
-    let posterPath: String?
+    let vote_count: Int?
+    let poster_path: String?
     let id: Int
     let title: String
-    let voteAverage: Int?
+    let vote_average: Double?
     let overview: String?
-    let releaseDate: String?
+    let release_date: String?
 }

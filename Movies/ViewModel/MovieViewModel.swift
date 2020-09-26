@@ -33,7 +33,7 @@ class MovieViewModel {
             case .success(let result):
                 self.movies = result.results
                 self.delegate?.didGetData()
-                print(self.movies.count)
+                print(self.movies)
                 break
             case .failure(let error):
                 print(error.errorMessage)
