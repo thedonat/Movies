@@ -34,15 +34,13 @@ class CastCell: UITableViewCell, UICollectionViewDelegate {
         let height = (self.frame.width-20)/2
         let layout = castCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.itemSize = CGSize(width: width, height: height)
+        
+
     }
-    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
-//    {
-//        return CGSize(width: 100.0, height: 120.0)
-//    }
 }
 
 extension CastCell: UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if categoryType == .Movies {
             return array.count
@@ -63,3 +61,4 @@ extension CastCell: UICollectionViewDataSource {
         return cell
     }
 }
+

@@ -9,18 +9,18 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="321" id="KGk-i7-Jjw" customClass="CastCell" customModule="Movies" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="610" height="321"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="306" id="KGk-i7-Jjw" customClass="CastCell" customModule="Movies" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="577" height="306"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="610" height="321"/>
+            <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="577" height="306"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="g3b-VB-uz2">
-                        <rect key="frame" x="8" y="8" width="594" height="300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="577" height="306"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="300" id="s6f-SP-Xk9"/>
+                            <constraint firstAttribute="height" priority="999" constant="300" id="sz1-o0-WHt"/>
                         </constraints>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ro1-Zu-7ga">
                             <size key="itemSize" width="128" height="128"/>
@@ -32,17 +32,17 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="g3b-VB-uz2" secondAttribute="bottom" constant="8" id="EAE-ri-iv2"/>
-                    <constraint firstItem="g3b-VB-uz2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="O0M-Fj-MwS"/>
-                    <constraint firstItem="g3b-VB-uz2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="nCo-ml-l0m"/>
-                    <constraint firstAttribute="trailing" secondItem="g3b-VB-uz2" secondAttribute="trailing" constant="8" id="qig-so-aEc"/>
+                    <constraint firstAttribute="trailing" secondItem="g3b-VB-uz2" secondAttribute="trailing" id="HI4-ZK-CnO"/>
+                    <constraint firstItem="g3b-VB-uz2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="OZn-LO-sd9"/>
+                    <constraint firstAttribute="bottom" secondItem="g3b-VB-uz2" secondAttribute="bottom" id="oUC-ZW-wKe"/>
+                    <constraint firstItem="g3b-VB-uz2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="unN-GT-Xtu"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="castCollectionView" destination="g3b-VB-uz2" id="yaM-Qp-sis"/>
             </connections>
-            <point key="canvasLocation" x="344.92753623188406" y="219.30803571428569"/>
+            <point key="canvasLocation" x="335.50724637681162" y="214.28571428571428"/>
         </tableViewCell>
     </objects>
 </document>

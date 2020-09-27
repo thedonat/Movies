@@ -16,13 +16,13 @@ class DetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         detailsViewModel.delegate = self
-        switchType()
+        switchTypeToLoad()
         movieDetailsTableView.register(UINib(nibName: "DetailCell", bundle: nil), forCellReuseIdentifier: "MoiveCell")
         movieDetailsTableView.register(UINib(nibName: "CastCell", bundle: nil), forCellReuseIdentifier: "CastCell")
         navigationItem.largeTitleDisplayMode = .never
     }
     
-    private func switchType () {
+    private func switchTypeToLoad () {
         if detailsViewModel.categoryType == .Movies {
             detailsViewModel.getCast(type: .MovieCast)
             detailsViewModel.getDetails(type: .MovieDetails)

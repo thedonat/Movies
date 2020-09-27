@@ -17,8 +17,6 @@ class CastCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        print("YES")
     }
     
     func setView(image: String?, character: String?, name: String?) {
