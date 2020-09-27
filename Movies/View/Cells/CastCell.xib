@@ -20,7 +20,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="577" height="306"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="height" priority="999" constant="300" id="sz1-o0-WHt"/>
+                            <constraint firstAttribute="height" priority="999" constant="310" id="sz1-o0-WHt"/>
                         </constraints>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ro1-Zu-7ga">
                             <size key="itemSize" width="128" height="128"/>

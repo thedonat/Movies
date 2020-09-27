@@ -11,7 +11,7 @@ import UIKit
 class DetailsViewController: UIViewController {
 
     @IBOutlet weak var movieDetailsTableView: UITableView!
-    let detailsViewModel: DetailsViewModel = DetailsViewModel()
+    let detailsViewModel: DetailViewModel = DetailViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,12 +20,13 @@ class DetailsViewController: UIViewController {
         movieDetailsTableView.register(UINib(nibName: "DetailCell", bundle: nil), forCellReuseIdentifier: "MoiveCell")
         movieDetailsTableView.register(UINib(nibName: "CastCell", bundle: nil), forCellReuseIdentifier: "CastCell")
         navigationItem.largeTitleDisplayMode = .never
+        navigationController?.navigationBar.barTintColor = .black
     }
     
     private func switchTypeToLoad () {
         if detailsViewModel.categoryType == .Movies {
-            detailsViewModel.getCast(type: .MovieCast)
-            detailsViewModel.getDetails(type: .MovieDetails)
+            detailsViewModel.getMovieCast(type: .MovieCast)
+            detailsViewModel.getMovieDetails(type: .MovieDetails)
         } else {
             detailsViewModel.getShowCast(type: .TvCast)
             detailsViewModel.getShowDetails(type: .TvDetails)
@@ -33,7 +34,7 @@ class DetailsViewController: UIViewController {
     }
 }
 
-extension DetailsViewController: DetailsViewModelProtocol {
+extension DetailsViewController: DetailViewModelProtocol {
     func didGetDetails() {
         DispatchQueue.main.async {
             self.movieDetailsTableView.reloadData()
@@ -67,6 +68,7 @@ extension DetailsViewController: UITableViewDataSource {
                              runtime: showDetail?.runtime?[0])
             }
             return cell
+            
         } else {
             let cell = movieDetailsTableView.dequeueReusableCell(withIdentifier: "CastCell", for: indexPath) as! CastCell
             if detailsViewModel.categoryType == .Movies {

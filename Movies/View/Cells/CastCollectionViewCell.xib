@@ -23,14 +23,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="225" height="211"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N/A" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jk6-wP-chw">
-                                <rect key="frame" x="8" y="219" width="209" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="8" y="219" width="209" height="19.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N/A" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z3k-6s-4xB">
-                                <rect key="frame" x="8" y="247.5" width="209" height="23"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <rect key="frame" x="8" y="242.5" width="209" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -45,7 +45,7 @@
                             <constraint firstItem="7be-Mg-KrU" firstAttribute="leading" secondItem="p21-jT-IPy" secondAttribute="leading" id="ooa-zN-tqi"/>
                             <constraint firstAttribute="trailing" secondItem="Z3k-6s-4xB" secondAttribute="trailing" constant="8" id="r3B-BU-VGb"/>
                             <constraint firstItem="Jk6-wP-chw" firstAttribute="leading" secondItem="p21-jT-IPy" secondAttribute="leading" constant="8" id="xfp-6d-StP"/>
-                            <constraint firstItem="Z3k-6s-4xB" firstAttribute="top" secondItem="Jk6-wP-chw" secondAttribute="bottom" constant="8" id="yRo-rL-3zh"/>
+                            <constraint firstItem="Z3k-6s-4xB" firstAttribute="top" secondItem="Jk6-wP-chw" secondAttribute="bottom" constant="4" id="yRo-rL-3zh"/>
                             <constraint firstItem="7be-Mg-KrU" firstAttribute="height" secondItem="p21-jT-IPy" secondAttribute="height" multiplier="0.75" id="ycF-lp-buS"/>
                         </constraints>
                     </view>

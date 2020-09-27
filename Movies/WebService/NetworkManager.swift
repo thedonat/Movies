@@ -34,7 +34,7 @@ struct NetworkManager {
         let endpoint = setEndPoint(type: type)
         let creditEndpoint = getCreditEndpoint(type: type)
         let url = K.BASE_URL + endpoint.rawValue + "\(mediaID)" + creditEndpoint + K.API_KEY
-        print(url)
+
         if let url = URL(string: url) {
             URLSession.shared.dataTask(with: url) { (data, response, error) in
                 if error != nil {

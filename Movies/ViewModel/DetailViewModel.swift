@@ -8,12 +8,12 @@
 
 import Foundation
 
-protocol DetailsViewModelProtocol: class {
+protocol DetailViewModelProtocol: class {
     func didGetDetails()
 }
 
-class DetailsViewModel {
-    weak var delegate: DetailsViewModelProtocol?
+class DetailViewModel {
+    weak var delegate: DetailViewModelProtocol?
     public var detailID: Int = Int()
     public var categoryType: CategoryType? = nil
     private var manager: NetworkManager = NetworkManager()
@@ -38,7 +38,7 @@ class DetailsViewModel {
         return cast
     }
     
-    func getDetails(type: ListType){
+    func getMovieDetails(type: ListType){
         manager.getDetails(mediaID: detailID, type: type) { [weak self] (response: NetworkResponse<MovieDetails, NetworkError>) in
             guard let self = self else { return }
             
@@ -53,7 +53,7 @@ class DetailsViewModel {
         }
     }
     
-    func getCast(type: ListType) {
+    func getMovieCast(type: ListType) {
         manager.getDetails(mediaID: detailID, type: type) { [weak self] (response: NetworkResponse<MovieCast, NetworkError>) in
             guard let self = self else { return }
             
