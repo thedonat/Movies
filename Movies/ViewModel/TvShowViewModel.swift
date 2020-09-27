@@ -9,7 +9,7 @@
 import Foundation
 
 protocol TvShowViewModelProtocol: class {
-    func didGetData()
+    func didGetShowData()
 }
 
 class TvShowViewModel {
@@ -32,7 +32,7 @@ class TvShowViewModel {
             switch response {
             case .success(let result):
                 self.shows = result.results
-                self.delegate?.didGetData()
+                self.delegate?.didGetShowData()
                 break
             case .failure(let error):
                 print(error.errorMessage)

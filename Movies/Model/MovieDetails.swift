@@ -8,7 +8,7 @@
 
 import Foundation
 
-// MARK: - Welcome
+// MARK: - MovieDetails
 struct MovieDetails: Decodable {
     let id: Int?
     let overview: String?

@@ -8,6 +8,7 @@
 
 import Foundation
 
+// MARK: - TvShowDetails
 struct TvShowDetails: Decodable {
     let id: Int?
     let overview: String?

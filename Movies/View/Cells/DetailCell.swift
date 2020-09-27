@@ -25,13 +25,15 @@ class DetailCell: UITableViewCell {
     func setView(name: String?, posterPath: String?, description: String?, rating: Double?, popularity: Double?, runtime: Int?) {
         movieNameLabel.text = name
         movieDescriptionLabel.text = description
+        ImageLoader().loadImage(with: posterPath, image: movieImageView)
         
-        if let posterPath = posterPath, let rating = rating, let popularity = popularity, let runtime = runtime {
-            let url = URL(string:  K.IMAGE_URL + posterPath)
-            movieImageView.kf.setImage(with: url)
+        if let rating = rating, let popularity = popularity {
             moviePopularityLabel.text = String(popularity)
             movieRatingLabel.text = String(rating)
-            movieRuntimeLabel.text = String(runtime) + " min"
         }
+        
+        if let runtime = runtime {
+            movieRuntimeLabel.text = String(runtime) + " min"
+        } 
     }
 }

@@ -8,17 +8,18 @@
 
 import UIKit
 
-class CastCell: UITableViewCell, UICollectionViewDelegate {
+class CastCell: UITableViewCell {
 
     @IBOutlet weak var castCollectionView: UICollectionView!
     public var categoryType: CategoryType? = nil
-    var array: [Cast] = [] {
+    
+    var movieCast: [Cast] = [] {
         didSet {
             castCollectionView.reloadData()
         }
     }
     
-    var array2: [ShowCast] = [] {
+    var showCast: [ShowCast] = [] {
         didSet {
               castCollectionView.reloadData()
           }
@@ -26,16 +27,16 @@ class CastCell: UITableViewCell, UICollectionViewDelegate {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         castCollectionView.dataSource = self
-        castCollectionView.delegate = self
         castCollectionView.register(UINib(nibName: "CastCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CastCollection")
+        setItemSize()
+    }
+    
+    func setItemSize() {
         let width = (self.frame.width-20)/3
         let height = (self.frame.width-20)/2
         let layout = castCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.itemSize = CGSize(width: width, height: height)
-        
-
     }
 }
 
@@ -43,20 +44,20 @@ extension CastCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if categoryType == .Movies {
-            return array.count
+            return movieCast.count
         } else {
-            return array2.count
+            return showCast.count
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = castCollectionView.dequeueReusableCell(withReuseIdentifier: "CastCollection", for: indexPath) as! CastCollectionViewCell
         if categoryType == .Movies {
-            let vm = array[indexPath.row]
-            cell.setView(image: vm.profile_path, character: vm.character, name: vm.name)
+            let vm = movieCast[indexPath.row]
+            cell.setView(imagePath: vm.profile_path, character: vm.character, name: vm.name)
         } else {
-            let vm = array2[indexPath.row]
-            cell.setView(image: vm.profile_path, character: vm.character, name: vm.name)
+            let vm = showCast[indexPath.row]
+            cell.setView(imagePath: vm.profile_path, character: vm.character, name: vm.name)
         }
         return cell
     }

@@ -19,12 +19,9 @@ class CastCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
     }
     
-    func setView(image: String?, character: String?, name: String?) {
+    func setView(imagePath: String?, character: String?, name: String?) {
         castCharacterLabel.text = character
         castNameLabel.text = name
-        if let image = image {
-            let url = URL(string: K.IMAGE_URL + image)
-            castImageView.kf.setImage(with: url)
-        }
+        ImageLoader().loadImage(with: imagePath, image: castImageView)
     }
 }

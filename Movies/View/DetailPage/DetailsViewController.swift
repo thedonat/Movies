@@ -10,20 +10,37 @@ import UIKit
 
 class DetailsViewController: UIViewController {
 
-    @IBOutlet weak var movieDetailsTableView: UITableView!
+    // MARK: - Properties
+    @IBOutlet weak var detailsTableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     let detailsViewModel: DetailViewModel = DetailViewModel()
-    
+
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        detailsViewModel.delegate = self
         switchTypeToLoad()
-        movieDetailsTableView.register(UINib(nibName: "DetailCell", bundle: nil), forCellReuseIdentifier: "MoiveCell")
-        movieDetailsTableView.register(UINib(nibName: "CastCell", bundle: nil), forCellReuseIdentifier: "CastCell")
+        prepareUI()
+
+    }
+    
+    // MARK: - Helpers
+    private func prepareUI() {
         navigationItem.largeTitleDisplayMode = .never
         navigationController?.navigationBar.barTintColor = .black
+        detailsTableView.register(UINib(nibName: "DetailCell", bundle: nil), forCellReuseIdentifier: "MoiveCell")
+        detailsTableView.register(UINib(nibName: "CastCell", bundle: nil), forCellReuseIdentifier: "CastCell")
+        activityIndicator.startAnimating()
+    }
+    
+    private func configureUI() {
+        activityIndicator.stopAnimating()
+        activityIndicator.isHidden = true
+        detailsTableView.isHidden = false
     }
     
     private func switchTypeToLoad () {
+        detailsViewModel.delegate = self
+        
         if detailsViewModel.categoryType == .Movies {
             detailsViewModel.getMovieCast(type: .MovieCast)
             detailsViewModel.getMovieDetails(type: .MovieDetails)
@@ -34,14 +51,17 @@ class DetailsViewController: UIViewController {
     }
 }
 
+// MARK: - DetailViewModelProtocol
 extension DetailsViewController: DetailViewModelProtocol {
     func didGetDetails() {
         DispatchQueue.main.async {
-            self.movieDetailsTableView.reloadData()
+            self.detailsTableView.reloadData()
+            self.configureUI()
         }
     }
 }
 
+// MARK: - UITableViewDataSource
 extension DetailsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
@@ -49,9 +69,9 @@ extension DetailsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
-            let cell = movieDetailsTableView.dequeueReusableCell(withIdentifier: "MoiveCell", for: indexPath) as! DetailCell
+            let cell = detailsTableView.dequeueReusableCell(withIdentifier: "MoiveCell", for: indexPath) as! DetailCell
             if detailsViewModel.categoryType == .Movies {
-                let movieDetail = detailsViewModel.cellForRow()
+                let movieDetail = detailsViewModel.getMovieDetails()
                 cell.setView(name: movieDetail?.name,
                              posterPath: movieDetail?.posterPath,
                              description: movieDetail?.overview,
@@ -65,20 +85,20 @@ extension DetailsViewController: UITableViewDataSource {
                              description: showDetail?.overview,
                              rating: showDetail?.voteAverage,
                              popularity: showDetail?.popularity,
-                             runtime: showDetail?.runtime?[0])
+                             runtime: showDetail?.runtime?.first)
             }
             return cell
             
         } else {
-            let cell = movieDetailsTableView.dequeueReusableCell(withIdentifier: "CastCell", for: indexPath) as! CastCell
+            let cell = detailsTableView.dequeueReusableCell(withIdentifier: "CastCell", for: indexPath) as! CastCell
             if detailsViewModel.categoryType == .Movies {
                 let movieCast = detailsViewModel.getMovieCast()
                 cell.categoryType = .Movies
-                cell.array = movieCast
+                cell.movieCast = movieCast
             } else {
                 let showCast = detailsViewModel.getTvCast()
                 cell.categoryType = .TvShows
-                cell.array2 = showCast
+                cell.showCast = showCast
             }
             return cell
         }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-// MARK: - Welcome
+// MARK: - MovieCast
 struct MovieCast: Decodable {
     let cast: [Cast]
 }

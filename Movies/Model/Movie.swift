@@ -13,7 +13,7 @@ struct Movie: Codable {
     let results: [MovieResult]
 }
 
-// MARK: - Result
+// MARK: - MovieResult
 struct MovieResult: Codable {
     let popularity: Double?
     let vote_count: Int?

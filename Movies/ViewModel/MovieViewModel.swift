@@ -9,7 +9,7 @@
 import Foundation
 
 protocol MovieViewModelProtocol: class {
-    func didGetData()
+    func didGetMovieData()
 }
 
 class MovieViewModel {
@@ -32,7 +32,7 @@ class MovieViewModel {
             switch response {
             case .success(let result):
                 self.movies = result.results
-                self.delegate?.didGetData()
+                self.delegate?.didGetMovieData()
                 break
             case .failure(let error):
                 print(error.errorMessage)

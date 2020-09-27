@@ -12,7 +12,7 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MovieViewController" customModule="Movies" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Eyf-6W-RF0">
@@ -64,8 +64,8 @@
         <scene sceneID="ocs-f0-ffH">
             <objects>
                 <viewController id="V7F-6H-Fcy" customClass="TvShowViewController" customModule="Movies" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="GWe-be-fbc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <view key="view" opaque="NO" contentMode="scaleToFill" id="GWe-be-fbc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="8NE-6u-gak">
@@ -118,7 +118,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1dy-V7-a9o">
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1dy-V7-a9o">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -127,6 +127,10 @@
                                     <outlet property="delegate" destination="Ehq-Zw-ozp" id="099-Pu-vej"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Xwj-DV-WTO">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                                <color key="color" systemColor="tertiarySystemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="0.16952413960000001" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -134,12 +138,15 @@
                             <constraint firstItem="2c0-9m-u6a" firstAttribute="bottom" secondItem="1dy-V7-a9o" secondAttribute="bottom" id="BA1-zm-rTu"/>
                             <constraint firstItem="1dy-V7-a9o" firstAttribute="top" secondItem="2c0-9m-u6a" secondAttribute="top" id="ErB-Zb-1OZ"/>
                             <constraint firstItem="2c0-9m-u6a" firstAttribute="trailing" secondItem="1dy-V7-a9o" secondAttribute="trailing" id="Tfr-JX-GSb"/>
+                            <constraint firstItem="Xwj-DV-WTO" firstAttribute="centerY" secondItem="0YJ-FC-dHY" secondAttribute="centerY" id="gXz-NZ-34c"/>
+                            <constraint firstItem="Xwj-DV-WTO" firstAttribute="centerX" secondItem="0YJ-FC-dHY" secondAttribute="centerX" id="vAs-SH-jDX"/>
                             <constraint firstItem="1dy-V7-a9o" firstAttribute="leading" secondItem="2c0-9m-u6a" secondAttribute="leading" id="xu5-OV-75Q"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2c0-9m-u6a"/>
                     </view>
                     <connections>
-                        <outlet property="movieDetailsTableView" destination="1dy-V7-a9o" id="mfm-VM-1Vx"/>
+                        <outlet property="activityIndicator" destination="Xwj-DV-WTO" id="SNy-6X-xuH"/>
+                        <outlet property="detailsTableView" destination="1dy-V7-a9o" id="mfm-VM-1Vx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T4P-on-Ex7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -151,9 +158,10 @@
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="cnV-qA-ty2" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="2et-Md-nyv">
+                    <tabBar key="tabBar" opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="2et-Md-nyv">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="0.16952413960000001" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>

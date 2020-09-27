@@ -8,12 +8,12 @@
 
 import Foundation
 
-// MARK: - Welcome
+// MARK: - TvShowCast
 struct TvShowCast: Decodable {
     let cast: [ShowCast]
 }
 
-// MARK: - Cast
+// MARK: - ShowCast
 struct ShowCast: Decodable {
     let character: String?
     let name: String?

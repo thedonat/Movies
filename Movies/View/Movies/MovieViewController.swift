@@ -10,15 +10,19 @@ import UIKit
 
 class MovieViewController: UIViewController {
 
+    // MARK: - Properties
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var movieTableView: UITableView!
     private let movieViewModel: MovieViewModel = MovieViewModel()
     
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        prepareUI()
         getData()
     }
 
+    // MARK: - Helpers
     @IBAction func indexDidChange(_ sender: UISegmentedControl) {
         switch segmentedControl.selectedSegmentIndex {
         case 0:
@@ -32,14 +36,17 @@ class MovieViewController: UIViewController {
         }
     }
     
-    private func getData() {
+    private func prepareUI() {
         movieTableView.register(UINib(nibName: "CustomCell", bundle: nil), forCellReuseIdentifier: "MovieCell")
+    }
+    
+    private func getData() {
         movieViewModel.delegate = self
         movieViewModel.getMovies(type: .PopularMovies)
     }
 }
 
-
+// MARK: - UITableViewDataSource
 extension MovieViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movieViewModel.numberOfRow()
@@ -51,11 +58,13 @@ extension MovieViewController: UITableViewDataSource {
         cell.setView(name: vm.title,
                      rating: vm.vote_average,
                      date: vm.release_date,
-                     posterPath: vm.poster_path)
+                     posterPath: vm.poster_path,
+                     popularity: vm.popularity)
         return cell
     }
 }
 
+// MARK: - UITableViewDelegate
 extension MovieViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200
@@ -72,7 +81,7 @@ extension MovieViewController: UITableViewDelegate {
 }
 
 extension MovieViewController: MovieViewModelProtocol {
-    func didGetData() {
+    func didGetMovieData() {
         DispatchQueue.main.async {
             self.movieTableView.reloadData()
         }

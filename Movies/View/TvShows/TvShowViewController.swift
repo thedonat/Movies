@@ -10,15 +10,19 @@ import UIKit
 
 class TvShowViewController: UIViewController {
 
+    // MARK: - Properties
     @IBOutlet weak var tvShowTableView: UITableView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     private let tvShowViewModel: TvShowViewModel = TvShowViewModel()
     
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        prepareUI()
         getData()
     }
-    
+
+    // MARK: - Helpers
     @IBAction func indexDidChange(_ sender: UISegmentedControl) {
         switch segmentedControl.selectedSegmentIndex {
         case 0:
@@ -30,13 +34,17 @@ class TvShowViewController: UIViewController {
         }
     }
     
-    private func getData() {
+    private func prepareUI() {
         tvShowTableView.register(UINib(nibName: "CustomCell", bundle: nil), forCellReuseIdentifier: "TvCell")
+    }
+    
+    private func getData() {
         tvShowViewModel.delegate = self
         tvShowViewModel.getShows(type: .PopularShows)
     }
 }
 
+// MARK: - UITableViewDataSource
 extension TvShowViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tvShowViewModel.numberOfRow()
@@ -48,11 +56,13 @@ extension TvShowViewController: UITableViewDataSource {
         cell.setView(name: vm.name,
                      rating: vm.vote_average,
                      date: vm.first_air_date,
-                     posterPath: vm.poster_path)
+                     posterPath: vm.poster_path,
+                     popularity: vm.popularity)
         return cell
     }
 }
 
+// MARK: - UITableViewDelegate
 extension TvShowViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200
@@ -68,8 +78,9 @@ extension TvShowViewController: UITableViewDelegate {
     }
 }
 
+// MARK: - TvShowViewModelProtocol
 extension TvShowViewController: TvShowViewModelProtocol {
-    func didGetData() {
+    func didGetShowData() {
         DispatchQueue.main.async {
             self.tvShowTableView.reloadData()
         }

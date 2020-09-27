@@ -16,13 +16,13 @@ class DetailViewModel {
     weak var delegate: DetailViewModelProtocol?
     public var detailID: Int = Int()
     public var categoryType: CategoryType? = nil
-    private var manager: NetworkManager = NetworkManager()
     private var details: MovieDetails? = nil
     private var tvdetails: TvShowDetails? = nil
+    private var manager: NetworkManager = NetworkManager()
     private var tvcast: [ShowCast] = []
     private var cast: [Cast] = []
     
-    func cellForRow() -> MovieDetails? {
+    func getMovieDetails() -> MovieDetails? {
         return details
     }
     

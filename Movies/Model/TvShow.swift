@@ -13,7 +13,7 @@ struct TvShow: Codable {
     let results: [TvShowResult]
 }
 
-// MARK: - Result
+// MARK: - TvShowResult
 struct TvShowResult: Codable {
     let name: String
     let vote_count: Int?
@@ -21,4 +21,5 @@ struct TvShowResult: Codable {
     let id: Int
     let vote_average: Double?
     let poster_path: String?
+    let popularity: Double?
 }
