@@ -63,7 +63,7 @@ extension MovieViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let destinationVC = storyboard.instantiateViewController(identifier: "MovieDetails") as! MovieDetailsViewController
+        let destinationVC = storyboard.instantiateViewController(identifier: "MovieDetails") as! DetailsViewController
         let vm = movieViewModel.cellForRow(at: indexPath.row)
         destinationVC.detailsViewModel.detailID = vm.id
         destinationVC.detailsViewModel.categoryType = .Movies

@@ -60,7 +60,7 @@ extension TvShowViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let destinationVC = storyboard.instantiateViewController(identifier: "TvShowDetails") as! TvShowDetailsViewController
+        let destinationVC = storyboard.instantiateViewController(identifier: "MovieDetails") as! DetailsViewController
         let vm = tvShowViewModel.cellForRow(at: indexPath.row)
         destinationVC.detailsViewModel.detailID = vm.id
         destinationVC.detailsViewModel.categoryType = .TvShows

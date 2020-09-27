@@ -50,7 +50,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Movies" id="G9q-ep-GhQ"/>
+                    <navigationItem key="navigationItem" title="Movies" largeTitleDisplayMode="always" id="G9q-ep-GhQ"/>
                     <connections>
                         <outlet property="movieTableView" destination="t4s-xt-23K" id="Dqe-QR-Dve"/>
                         <outlet property="segmentedControl" destination="Eyf-6W-RF0" id="QhV-2H-HCE"/>
@@ -100,7 +100,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="NcH-Zf-Tnx"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Tv Shows" id="9mr-SE-zhs"/>
+                    <navigationItem key="navigationItem" title="Tv Shows" largeTitleDisplayMode="always" id="9mr-SE-zhs"/>
                     <connections>
                         <outlet property="segmentedControl" destination="8NE-6u-gak" id="Ic4-iZ-JBN"/>
                         <outlet property="tvShowTableView" destination="br1-1b-u5A" id="IvK-YH-yGT"/>
@@ -110,10 +110,10 @@
             </objects>
             <point key="canvasLocation" x="1818.840579710145" y="610.71428571428567"/>
         </scene>
-        <!--View Controller-->
+        <!--Tv Show Details View Controller-->
         <scene sceneID="4Zc-ih-LJv">
             <objects>
-                <viewController id="9Sd-0m-hPb" sceneMemberID="viewController">
+                <viewController id="9Sd-0m-hPb" customClass="TvShowDetailsViewController" customModule="Movies" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="APl-7m-T6H">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -125,54 +125,41 @@
             </objects>
             <point key="canvasLocation" x="2735" y="611"/>
         </scene>
-        <!--Movie Details View Controller-->
+        <!--Details View Controller-->
         <scene sceneID="cid-KA-EdP">
             <objects>
-                <viewController storyboardIdentifier="MovieDetails" id="Ehq-Zw-ozp" customClass="MovieDetailsViewController" customModule="Movies" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MovieDetails" id="Ehq-Zw-ozp" customClass="DetailsViewController" customModule="Movies" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0YJ-FC-dHY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bub-gM-A0n">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1dy-V7-a9o">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Nfc-Fu-wp8">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
-                                        <subviews>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TsG-sX-heE">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="128" id="T7U-eC-7Rb"/>
-                                                </constraints>
-                                            </tableView>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="Nfc-Fu-wp8" firstAttribute="leading" secondItem="2zt-Ty-sRJ" secondAttribute="leading" id="KkG-Z4-XUG"/>
-                                    <constraint firstItem="Nfc-Fu-wp8" firstAttribute="trailing" secondItem="2zt-Ty-sRJ" secondAttribute="trailing" id="RkF-O8-fwR"/>
-                                    <constraint firstItem="Nfc-Fu-wp8" firstAttribute="bottom" secondItem="2zt-Ty-sRJ" secondAttribute="bottom" id="SIf-fY-Ang"/>
-                                    <constraint firstItem="Nfc-Fu-wp8" firstAttribute="top" secondItem="2zt-Ty-sRJ" secondAttribute="top" id="YPT-VM-1rs"/>
-                                    <constraint firstItem="Nfc-Fu-wp8" firstAttribute="width" secondItem="0CQ-Xl-Lfc" secondAttribute="width" id="tLc-N8-Duk"/>
-                                </constraints>
-                                <viewLayoutGuide key="contentLayoutGuide" id="2zt-Ty-sRJ"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="0CQ-Xl-Lfc"/>
-                            </scrollView>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Ehq-Zw-ozp" id="54q-3m-g7o"/>
+                                    <outlet property="delegate" destination="Ehq-Zw-ozp" id="099-Pu-vej"/>
+                                </connections>
+                            </tableView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="0.16952413960000001" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="bub-gM-A0n" firstAttribute="top" secondItem="2c0-9m-u6a" secondAttribute="top" id="EPq-h4-qGV"/>
-                            <constraint firstItem="bub-gM-A0n" firstAttribute="bottom" secondItem="2c0-9m-u6a" secondAttribute="bottom" id="NsZ-PD-8rc"/>
-                            <constraint firstItem="bub-gM-A0n" firstAttribute="trailing" secondItem="2c0-9m-u6a" secondAttribute="trailing" id="bUx-dU-pya"/>
-                            <constraint firstItem="bub-gM-A0n" firstAttribute="leading" secondItem="2c0-9m-u6a" secondAttribute="leading" id="vuz-UV-znV"/>
+                            <constraint firstItem="2c0-9m-u6a" firstAttribute="bottom" secondItem="1dy-V7-a9o" secondAttribute="bottom" id="BA1-zm-rTu"/>
+                            <constraint firstItem="1dy-V7-a9o" firstAttribute="top" secondItem="2c0-9m-u6a" secondAttribute="top" id="ErB-Zb-1OZ"/>
+                            <constraint firstItem="2c0-9m-u6a" firstAttribute="trailing" secondItem="1dy-V7-a9o" secondAttribute="trailing" id="Tfr-JX-GSb"/>
+                            <constraint firstItem="1dy-V7-a9o" firstAttribute="leading" secondItem="2c0-9m-u6a" secondAttribute="leading" id="xu5-OV-75Q"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2c0-9m-u6a"/>
                     </view>
+                    <connections>
+                        <outlet property="movieDetailsTableView" destination="1dy-V7-a9o" id="mfm-VM-1Vx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T4P-on-Ex7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2735" y="-156"/>
+            <point key="canvasLocation" x="2734.7826086956525" y="-156.02678571428569"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="raN-z0-d1L">
